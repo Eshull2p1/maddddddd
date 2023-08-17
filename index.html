@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฉันจะขายกาแฟ</title>
+    <link rel="stylesheet" href="shape/shape.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/6dbdf68391.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color: blanchedalmond;">
+    <div class="caro">
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div>เมล็ดกาแฟไทยแท้คุณภาพดีย์</div>
+                </div>
+                <div class="carousel-item">
+                    <div>โปรโมชั่นเปิดร้านซื้อครบ 1000 บาท ลด 10%</div>
+                </div>
+                <div class="carousel-item">
+                    <div>โปรโมชั่นปิดร้านซื้อครบ 1000 บาท ลด 10%</div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="product-card">
+            <img src="coffe/wmo200_1.png">
+            <h3>เมล็ดกาแฟ มอคค่า (คั่วเข้ม) 200 กรัม</h3>
+
+            <p>ราคา : 144 บาท</p>
+            <div class="count-box">
+                <button type="button" onclick=" minus_moc()"><i class="fa-solid fa-minus"></i></button>
+                <p id="mocca" class="count_pro">0</p>
+                <button type="button" onclick=" plus_moc()"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <button class="select-btn" onclick=" select_mocca()">หยิบ</button>
+        </div>
+
+        <div class="product-card">
+            <img src="coffe/wsm200_1.png">
+            <h3>เมล็ดกาแฟ สยามเบลนด์ (คั่วกลางเกือบเข้ม) 200 กรัม</h3>
+            <p>ราคา : 121 บาท</p>
+            <div class="count-box">
+                <button type="button" onclick="  minus_syaim()"><i class="fa-solid fa-minus"></i></button>
+                <p id="syaim" class="count_pro">0</p>
+                <button type="button" onclick=" plus_syaim()"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <button class="select-btn" onclick="select_syaim()">หยิบ</button>
+        </div>
+
+        <div class="product-card">
+            <img src="coffe/st-war250-1_jpg.jpg">
+            <h3>เมล็ดกาแฟ อราบิก้า 100% (คั่วกลางเกือบเข้ม) 250 กรัม</h3>
+            <p>ราคา : 193 บาท</p>
+            <div class="count-box">
+                <button type="button" onclick=" minus_arabiga()"><i class="fa-solid fa-minus"></i></button>
+                <p id="arabiga" class="count_pro">0</p>
+                <button type="button" onclick=" plus_arabiga()"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <button class="select-btn" onclick=" select_arabiga()">หยิบ</button>
+        </div>
+
+        <div class="product-card">
+            <img src="coffe/wam200_1.png">
+            <h3>เมล็ดกาแฟ อเมริกันโรสท์ (คั่วกลาง) 200 กรัม</h3>
+            <p>ราคา : 126 บาท</p>
+            <div class="count-box">
+                <button type="button" onclick=" minus_amerigan()"><i class="fa-solid fa-minus"></i></button>
+                <p id="amerigan" class="count_pro">0</p>
+                <button type="button" onclick=" plus_amerigan()"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <button class="select-btn" onclick="select_amerigan()">หยิบ</button>
+        </div>
+        <!-- Repeat similar product-card elements for other products -->
+    </div>
+    <form method="get">
+        <div class="summary">
+            <h2>ลด 10% เมื่อสั่งซื้อครบ 1000 บาท!!!</h2>
+            <button class="btn btn-primary" id="reset-button">ยกเลิก</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-bs-whatever="@getbootstrap">ยืนยันการสั่งซื้อ</button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">ยืนยันการสั่งซื้อสินค้าและจัดส่ง</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div>
+                                <label>รายการสินค้า : </label>
+                                <div>
+                                    <span id="mocca_pack"></span><span id="mocca_count"></span></span><span
+                                        id="mocca_price"></span>
+                                </div>
+                                <div>
+                                    <span id="syaim_pack"></span><span id="syaim_count"> </span></span><span
+                                        id="syaim_price"></span>
+                                </div>
+                                <div>
+                                    <span id="arabiga_pack"></span><span id="arabiga_count"> </span></span><span
+                                        id="arabiga_price"></span>
+                                </div>
+                                <div>
+                                    <span id="amerigan_pack"></span><span id="amerigan_count"></span><span
+                                        id="amerigan_price"></span>
+                                </div>
+                            </div>
+                            <p>ราคารวม : <span id="sum_price">0</span></p>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">ที่อยู่จัดส่ง:</label>
+                                    <input type="text" class="form-control" id="recipient-name" required>
+                                    <p>โปรดตรวจที่อยู่และสินค้าก่อนทำการยืนยัน</p>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message-text" class="col-form-label">ข้อความถึงทางร้าน:</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="select-btn" id="reset-button">ยกเลิก</button>
+                            <button type="submit" class="btn btn-primary">ส่งซื้อ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="shape/myScrip.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script
+</body>
+
+</html>
